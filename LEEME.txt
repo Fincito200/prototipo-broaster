@@ -1,0 +1,76 @@
+PROTOTIPO LOCAL DE CAJA COCINA Y ADMINISTRACION
+
+Archivos: index.html, styles.css, app.js y la carpeta assets/ con los emojis SVG.
+Mantener la estructura de carpetas para que se vean los iconos personalizados.
+Abrir index.html para explorar una vista. Recomendado: servir la carpeta con
+Live Server de VS Code para probar varias pestañas del mismo navegador y origen.
+
+USUARIOS DE DEMOSTRACION
+cajera / Caja123!
+cocinero / Cocina123!
+admin / Admin123!
+
+Prueba: abrir tres pestañas en el mismo navegador y servidor local. Iniciar
+sesión con un rol en cada pestaña. Caja crea un pedido. Cocina recibe los
+cambios automáticamente por el evento storage, lo prepara y marca listo.
+Caja recibe también los cambios de estado entre pestañas.
+Al recargar manualmente se pierde el carrito no enviado.
+Caja registra entrega y pago. Admin filtra la fecha local y exporta CSV.
+El administrador puede crear productos, editar precios y desactivar disponibilidad.
+Los pedidos conservan el nombre y precio originales.
+Los adicionales se vinculan al pedido original y entran al final de la cola.
+Cocina comienza las comandas pendientes en orden de recepción.
+
+LIMITACIONES
+Es una demostración, NO un sistema seguro ni listo para producción.
+Las contraseñas están en el JS y los roles se pueden manipular en el navegador.
+Los datos quedan en localStorage, pueden borrarse y NO se comparten entre equipos.
+El guardado no es transaccional: evitar registrar simultáneamente desde dos cajas.
+No incluye backend, MySQL, verificación de pagos, facturación, inventario ni ganancias.
+El indicador cobrado corresponde a pedidos de la fecha elegida, no a fecha de cobro.
+Para producción: backend PHP/MySQL, contraseñas con hash, sesiones seguras,
+autorización en servidor, protección CSRF, transacciones, prevención de duplicados,
+respaldos y actualización de estados entre dispositivos.
+CSV es texto compatible con Excel, no XLSX; usar importación con separador punto
+y coma y codificación UTF-8 si Excel no separa columnas automáticamente.
+No ingresar datos personales ni contraseñas reales en esta demostración.
+
+INTERFAZ Y PERSONALIZACION
+La carta, caja, cocina, administración e ingreso comparten el nuevo diseño.
+Seleccionar cremas con un clic. Cada porción tiene sus propias cremas y ensalada.
+Cuando hay varias porciones, el cuadro inferior permite elegir cuál personalizar.
+La exportación incluye el detalle de cremas y ensalada por porción.
+Los emojis SVG son originales, locales y escalables.
+
+CARTA ACTUALIZADA
+Hamburguesas: clásica y royal. Broaster: alita, pecho, pierna y encuentro.
+Salchipapas: clásica y royal. Mostrito: alita, pecho, pierna y encuentro.
+Las Alitas BBQ pasan a Broaster. Se mantienen bebidas y combo familiar.
+Completar los precios pendientes desde Administración > Editar producto.
+La actualización conserva el historial y se aplica una sola vez a la carta guardada.
+
+USO EN CELULAR
+Toca una marca en Gaseosa personal para agregar Coca-Cola o Inca Kola.
+Las salchipapas van siempre sin ensalada. Las bebidas no muestran acompañamientos.
+Para varias porciones, toca el nombre de la porción debajo de las cremas.
+Elige atención y pago con un toque. No es obligatorio escribir referencia ni notas.
+La barra inferior muestra cantidad/total y lleva al pedido. Seguir agregando vuelve a la carta.
+
+EDITOR DE PRODUCTOS
+Selecciona un emoji o importa una imagen PNG, JPG o WebP (máximo 10 MB).
+La vista previa permite comprobarla antes de Guardar producto.
+La imagen se optimiza y queda guardada localmente con el producto.
+Selecciona una categoría existente o pulsa Crear categoría para añadir una.
+Crear una categoría no borra los campos ya completados.
+
+PEDIDOS DE EJEMPLO PARA COCINA
+Al recargar se agregan cuatro comandas de prueba una sola vez por navegador.
+Incluyen recojo, mesa, delivery y un pedido con dos hamburguesas royal y una salchipapa.
+Se identifican como Pedido de prueba, quedan pendientes y no se marcan cobradas.
+No se borra el historial existente.
+
+COCINA Y AVISOS
+Recojo, Mesa y Delivery se destacan con texto y color en cocina.
+Cada porción tiene su propio bloque de cremas, ensalada y tipo de hamburguesa.
+Al marcar Listo, Caja actualiza el estado en Pedidos recientes, sin panel superior.
+Desde la misma tarjeta puede registrar la entrega. Probar entre pestañas del mismo navegador/origen.

@@ -1,0 +1,3 @@
+Ubuntu Bold — Copyright 2011 Canonical Ltd. Licensed under Ubuntu Font Licence 1.0. See UFL.txt.
+Original unmodified font from the bundled runtime.
+Licence source: https://raw.githubusercontent.com/google/fonts/main/ufl/ubuntu/UFL.txt
